@@ -1,0 +1,40 @@
+Welcome to FileShredder™ 0.1
+==============================
+
+Normally when a file is deleted, it goes to recycle bin and 
+after that only the file RECORD is deleted not the actual data. 
+Even when you press Shift+DEL!!!
+
+The file always exist somewhere in the memory. 
+What the FileShredder™ does is it overwrites the file content 
+with 0’s several times to make the data unrecoverable by any means.
+
+A free alternative to shred from Linux.
+Get the source code at : http://wiki.github.com/nayanshah/FileShredder/
+
+Technical Specs
+==============================
+
+FileShredder™ is 
+
+Testing & Authenticity
+==============================
+
+Tested and fully functional on Windows.
+EaseUs Data Recovery Tool 5.01. returns only garbage. :)
+
+How to install FileShredder™:
+==============================
+
+Unzip the archive in a place of your choice. 
+It will contain a directory named PHP-GTK libraries
+and FileShredder files.
+
+How to use FileShredder™:
+==============================
+
+1. Double click on the file FileShredder.bat
+2. Click Open to select a file to delete.
+3. Click the Delete button to PERMANENTLY delete the file. CAUTION!
+4. Data from the deleted files cannot be recovered.
+
