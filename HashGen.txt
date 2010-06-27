@@ -1,40 +1,42 @@
-Welcome to HashGen 0.1
+Welcome to HashGen™ 0.1
 ==============================
 
-Normally when a file is deleted, it goes to recycle bin and 
-after that only the file RECORD is deleted not the actual data. 
-Even when you press Shift+DEL!!!
-
-The file always exist somewhere in the memory. 
-What the FileShredder™ does is it overwrites the file content 
-with 0’s several times to make the data unrecoverable by any means.
-
-A free alternative to shred from Linux.
-Get the source code at : http://wiki.github.com/nayanshah/FileShredder/
+Need to calculate hashes of any file or string quickly ?
+HashGen generates MD5 and SHA1 hashes of both 
+files and strings.
 
 Technical Specs
 ==============================
 
-FileShredder™ is 
+HashGen™ is created entirely on PHP and uses 
+PHP-GTK for the front end.
 
 Testing & Authenticity
 ==============================
 
 Tested and fully functional on Windows.
-EaseUs Data Recovery Tool 5.01. returns only garbage. :)
 
-How to install FileShredder™:
+How to install HashGen™:
 ==============================
 
 Unzip the archive in a place of your choice. 
 It will contain a directory named PHP-GTK libraries
-and FileShredder files.
+and HashGen files.
 
-How to use FileShredder™:
+How to use HashGen™:
 ==============================
 
-1. Double click on the file FileShredder.bat
-2. Click Open to select a file to delete.
-3. Click the Delete button to PERMANENTLY delete the file. CAUTION!
-4. Data from the deleted files cannot be recovered.
+Graphical Mode:
 
+1. Double click on the file HashGen.bat
+2. Click Open to select a file or Type to enter a string.
+3. Click Get Hash to calulcate MD5 & SHA1 Hashes.
+
+Command Line:
+
+Usage:
+php HashGen.php file/string [hash_name]
+
+e.g. 
+php HashGen.php hello MD5
+php HashGen.php hello SHA1

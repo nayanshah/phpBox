@@ -1,12 +1,33 @@
+#!C:/xampp/php/
 <?php
 
-if (!@$GLOBALS['framework']) {
+if (!@$GLOBALS['framework'] && class_exists('HashGen')) {
 	$window = new HashGen();
 	Gtk::main();
 }
 else {
-	
-	echo 'Error in loading the required files.';
+	$arg = count($argv);
+	if($arg<2 || $arg>3) {
+		echo 'Usage :
+php HashGen.php file/string [hash_name]
+php HashGen.php hello MD5\n';
+	}
+	else {
+		$isFile = file_exists($argv[1]);
+		if($arg==2) {
+		$result = '
+MD5 : '.calculate_hash($argv[1], 'MD5', $isFile).'
+SHA1 : '.calculate_hash($argv[1], 'SHA1', $isFile).'
+';
+		} 
+		else {
+		$result = '
+'.strtoupper($argv[2]).' : '.calculate_hash($argv[1], strtoupper($argv[2]), $isFile).'
+';
+		} 
+	}
+	echo $result;
+	exit;
 }
 
 function calculate_hash($string, $hash = 'MD5', $isFile = false) {
@@ -97,6 +118,23 @@ SHA1 : '.$sha1;
 		return true;
 	}
 
+    function enter_text() {
+        $dialog = new GtkDialog('Enter text', $this, 0, array( Gtk::STOCK_OK, Gtk::RESPONSE_OK, Gtk::STOCK_CANCEL, Gtk::RESPONSE_CANCEL));
+		$hbox = new GtkHBox(false);
+		$dialog->vbox->pack_start($hbox, false, false, 0);
+        $label = new GtkLabel('String :');
+        $entry = new GtkEntry();
+        $hbox->pack_start($label);
+        $hbox->pack_start($entry);
+        $dialog->show_all();
+        $response = $dialog->run();
+        if ($response == Gtk::RESPONSE_OK) {
+            $this->hash_label->set_text($entry->get_text());
+            $this->selected_file=$entry->get_text();
+        }
+        $dialog->destroy();
+    }
+	
 	function on_no_input() {
 		$dialog = new GtkMessageDialog($this, Gtk::DIALOG_DESTROY_WITH_PARENT,
 		Gtk::MESSAGE_INFO, Gtk::BUTTONS_OK, 'No input given!!
@@ -152,7 +190,7 @@ class Menu {
 	
 	public static function _Type() {
 		global $window;
-		$window->about_dialog();	
+		$window->enter_text();	
 	}
 	
 	public static function _About() {
