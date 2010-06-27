@@ -15,15 +15,13 @@ php HashGen.php hello MD5\n';
 	else {
 		$isFile = file_exists($argv[1]);
 		if($arg==2) {
-		$result = '
+			$result = '
 MD5 : '.calculate_hash($argv[1], 'MD5', $isFile).'
 SHA1 : '.calculate_hash($argv[1], 'SHA1', $isFile).'
 ';
 		} 
 		else {
-		$result = '
-'.strtoupper($argv[2]).' : '.calculate_hash($argv[1], strtoupper($argv[2]), $isFile).'
-';
+			$result = calculate_hash($argv[1], strtoupper($argv[2]), $isFile);
 		} 
 	}
 	echo $result;
