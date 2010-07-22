@@ -9,6 +9,6 @@ in the source.
 Contents of phpBox
 ==============================
 
-1. FileShredder
-2. HashGen
+1. FileShredder - Delete files safely
+2. HashGen - Generate various hashes (MD5 & SHA1)
 
